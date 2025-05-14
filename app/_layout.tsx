@@ -4,9 +4,12 @@ import { Theme, ThemeProvider, DefaultTheme, DarkTheme } from '@react-navigation
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import * as React from 'react';
-import { Platform } from 'react-native';
+import { Platform, SafeAreaView } from 'react-native';
 import { NAV_THEME } from '@/lib/constants';
 import { useColorScheme } from '@/lib/use-color-scheme';
+import { QueryProvider } from '@/providers/query-provider';
+import { Header } from '@/components/custom/header';
+import { PortalHost } from '@rn-primitives/portal';
 
 const LIGHT_THEME: Theme = {
   ...DefaultTheme,
@@ -45,10 +48,20 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
-      <StatusBar style={isDarkColorScheme ? 'light' : 'dark'} />
-      <Stack />
-    </ThemeProvider>
+    <QueryProvider>
+      <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
+        <StatusBar style={isDarkColorScheme ? 'light' : 'dark'} />
+        <SafeAreaView className="flex-1 bg-background dark:bg-background-dark pt-8">
+          <Stack>
+            <Stack.Screen
+              name='index'
+              options={{ headerShown: false }}
+            />
+          </Stack>
+          <PortalHost />
+        </SafeAreaView>
+      </ThemeProvider>
+    </QueryProvider>
   );
 }
 
