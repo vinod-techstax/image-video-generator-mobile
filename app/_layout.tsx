@@ -1,6 +1,6 @@
 import '@/global.css';
 
-import { Theme, ThemeProvider, DefaultTheme, DarkTheme } from '@react-navigation/native';
+import { Theme, ThemeProvider, DefaultTheme, DarkTheme, NavigationContainer } from '@react-navigation/native';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import * as React from 'react';
@@ -10,6 +10,9 @@ import { useColorScheme } from '@/lib/use-color-scheme';
 import { QueryProvider } from '@/providers/query-provider';
 import { Header } from '@/components/custom/header';
 import { PortalHost } from '@rn-primitives/portal';
+import { DrawerNavigator } from '@/components/drawer/drawer-navigator';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 const LIGHT_THEME: Theme = {
   ...DefaultTheme,
@@ -48,20 +51,42 @@ export default function RootLayout() {
   }
 
   return (
+
     <QueryProvider>
       <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
-        <StatusBar style={isDarkColorScheme ? 'light' : 'dark'} />
-        <SafeAreaView className="flex-1 bg-background dark:bg-background-dark pt-8">
-          <Stack>
-            <Stack.Screen
-              name='index'
-              options={{ headerShown: false }}
-            />
-          </Stack>
-          <PortalHost />
-        </SafeAreaView>
+        <GestureHandlerRootView style={{ flex: 1 }} className='pt-10'>
+          <SafeAreaProvider>
+            <DrawerNavigator />
+            <StatusBar style={isDarkColorScheme ? 'light' : 'dark'} />
+          </SafeAreaProvider>
+        </GestureHandlerRootView>
       </ThemeProvider>
     </QueryProvider>
+    // <GestureHandlerRootView style={{ flex: 1 }}>
+    //   <SafeAreaProvider>
+    //     <NavigationContainer>
+    //       <DrawerNavigator />
+    //     </NavigationContainer>
+    //     <StatusBar style="auto" />
+    //   </SafeAreaProvider>
+    // </GestureHandlerRootView>
+
+
+    // <QueryProvider>
+    //   <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
+    //     <StatusBar style={isDarkColorScheme ? 'light' : 'dark'} />
+    //     <SafeAreaView className="flex-1 bg-background dark:bg-background-dark pt-8">
+    //       <DrawerNavigator />
+    //       {/* <Stack>
+    //         <Stack.Screen
+    //           name='index'
+    //           options={{ headerShown: false }}
+    //         />
+    //       </Stack> */}
+    //       {/* <PortalHost /> */}
+    //     </SafeAreaView>
+    //   </ThemeProvider>
+    // </QueryProvider>
   );
 }
 

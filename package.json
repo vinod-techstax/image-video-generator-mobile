@@ -11,6 +11,7 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@react-navigation/drawer": "^7.3.12",
     "@rn-primitives/accordion": "^1.1.0",
     "@rn-primitives/alert-dialog": "^1.1.0",
     "@rn-primitives/aspect-ratio": "^1.1.0",
