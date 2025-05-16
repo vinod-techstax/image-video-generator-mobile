@@ -27,9 +27,9 @@ export function Header({ title, rightElement }: HeaderProps) {
         <MenuIcon size={24} color="#4b5563" className="dark:text-gray-300" />
       </TouchableOpacity>
       
-      <Text className="text-lg font-bold ">
+      {/* <Text className="text-lg font-bold ">
         {title}
-      </Text>
+      </Text> */}
 
       <View className="flex-row items-center space-x-4">
         {rightElement}

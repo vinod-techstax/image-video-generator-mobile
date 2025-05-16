@@ -12,6 +12,7 @@ import {
   ChevronRight,
   User
 } from 'lucide-react-native';
+import { navigationItems } from '@/constants/drawer-navigation-items';
 
 type DrawerItemProps = {
   icon: React.ReactNode;
@@ -20,6 +21,8 @@ type DrawerItemProps = {
   isActive?: boolean;
   showChevron?: boolean;
 };
+
+
 
 const DrawerItem = ({ icon, label, onPress, isActive, showChevron = true }: DrawerItemProps) => {
   return (
@@ -92,36 +95,15 @@ export function CustomDrawer(props: any) {
 
         {/* Drawer Items */}
         <View className="px-2 py-2">
-          <DrawerItem
-            icon={<Home />}
-            label="Home"
-            onPress={() => navigation.navigate('Home')}
-            isActive={currentRoute === 'Home'}
-          />
-          <DrawerItem
-            icon={<GalleryIcon />}
-            label="Gallery"
-            onPress={() => navigation.navigate('Gallery')}
-            isActive={currentRoute === 'Gallery'}
-          />
-          <DrawerItem
-            icon={<DollarSign />}
-            label="Pricing"
-            onPress={() => navigation.navigate('Pricing')}
-            isActive={currentRoute === 'Pricing'}
-          />
-          <DrawerItem
-            icon={<Mail />}
-            label="Contact"
-            onPress={() => navigation.navigate('Contact')}
-            isActive={currentRoute === 'Contact'}
-          />
-          <DrawerItem
-            icon={<Info />}
-            label="About Us"
-            onPress={() => navigation.navigate('AboutUs')}
-            isActive={currentRoute === 'AboutUs'}
-          />
+          {navigationItems.map((item) => (
+            <DrawerItem
+              key={item.route}
+              icon={<item.icon/>}
+              label={item.label}
+              onPress={() => navigation.navigate(item.route as never)}
+              isActive={currentRoute === item.route}
+            />
+          ))}
         </View>
       </DrawerContentScrollView>
 

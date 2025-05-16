@@ -1,3 +1,9 @@
+// import { registerRootComponent } from 'expo';
+// import App from './App';
+
+// registerRootComponent(App); // This is required by Expo
+
+
 // Import side effects first and services
 
 // Initialize services
