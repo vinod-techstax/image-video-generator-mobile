@@ -1,25 +1,25 @@
 import { useEvent } from 'expo';
-import { useVideoPlayer, VideoView } from 'expo-video';
+// import { useVideoPlayer, VideoView } from 'expo-video';
 import { StyleSheet, View } from 'react-native';
 import { Button } from './ui/button';
 import { Text } from './ui/text';
 
-const videoSource1 =
-  'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4';
+// const videoSource1 =
+//   'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4';
 
 export default function ViewVideo({videoSource}: {videoSource: string}) {
-  const player = useVideoPlayer(videoSource1, player => {
-    player.loop = true;
-    player.play();
-  });
+  // const player = useVideoPlayer(videoSource1, player => {
+  //   player.loop = true;
+  //   player.play();
+  // });
 
-  const { isPlaying } = useEvent(player, 'playingChange', { isPlaying: player.playing });
+  // const { isPlaying } = useEvent(player, 'playingChange', { isPlaying: player.playing });
 
   return (
     <View style={styles.contentContainer}>
-      <VideoView style={styles.video} player={player} allowsFullscreen allowsPictureInPicture />
+      {/* <VideoView style={styles.video} player={player} allowsFullscreen allowsPictureInPicture /> */}
       <View style={styles.controlsContainer}>
-        <Button
+        {/* <Button
           className='rounded-full'
           
           onPress={() => {
@@ -31,7 +31,7 @@ export default function ViewVideo({videoSource}: {videoSource: string}) {
           }}
         >
           <Text>{isPlaying ? 'Pause' : 'Play'}</Text>
-        </Button>
+        </Button> */}
       </View>
     </View>
   );
