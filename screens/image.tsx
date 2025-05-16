@@ -21,7 +21,7 @@ import { useGenerateImageMutation } from '@/features/image/api/use-generate-imag
 import { useTextToImageQuery } from '@/features/image/api/use-text-to-image-quary';
 import { MaterialIcons } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
-import { toast } from 'sonner-native';
+// import { toast } from 'sonner-native';
 import Animated, { 
   FadeIn, 
   FadeOut,
@@ -95,7 +95,7 @@ const ImageGeneratorScreen = () => {
       
       // Show success toast when image is successfully generated
       if (textToImageQuery.data?.status === 'completed') {
-        // // toast.success('Image generated successfully!');
+        // toast.success('Image generated successfully!');
       }
     }
   }, [textToImageQuery.data?.imageUrl, textToImageQuery.data?.status]);
@@ -141,7 +141,7 @@ const ImageGeneratorScreen = () => {
             status,
           });
           setRefetch(true);
-          // // toast.info('Image generation started');
+          // toast.info('Image generation started');
         },
         onError: () => {
           // toast.error('Failed to start image generation');
@@ -401,9 +401,9 @@ const ImageGeneratorScreen = () => {
                   multiline
                   className='w-full'
                   value={imageField.prompt}
-                  onChangeText={(text) => setImageField({ ...imageField, prompt: text })}
+                  onChangeText={(text) => setImageField({ prompt: text })}
                   placeholder="Describe the image you want to create..."
-                  style={{ 
+                  style={{
                     height: Math.max(100),
                     padding: 12,
                     // color: {colors},
@@ -414,9 +414,9 @@ const ImageGeneratorScreen = () => {
                     borderRadius: 7, // Slightly less than parent to align with inner border,
                     borderWidth: 0
                   }}
-                  onContentSizeChange={(e) => 
-                    setPromptInputHeight(e.nativeEvent.contentSize.height)
-                  }
+                  // onContentSizeChange={(e) => 
+                  //   setPromptInputHeight(e.nativeEvent.contentSize.height)
+                  // }
                 />
               </View>
             </View>

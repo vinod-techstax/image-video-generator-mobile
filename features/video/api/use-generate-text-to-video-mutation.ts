@@ -1,6 +1,6 @@
 import { waitFor } from '@/lib/utils';
 import { useMutation } from '@tanstack/react-query';
-import { toast } from 'sonner-native';
+// import { toast } from 'sonner-native';
 
 // import { waitFor } from '../../../lib/utils';
 
@@ -41,7 +41,7 @@ export const useGenerateTextToVideoMutation = () => {
       throw new Error("Error while generating video")
     },
     onError: (error) => {
-      toast.error(error.message);
+      // toast.error(error.message);
     },
   });
   return mutation;

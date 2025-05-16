@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "image-video-generator-mobile",
-    "slug": "image-video-generator",
+    "slug": "image-video-gen",
     "version": "1.0.0",
     "web": {
       "favicon": "./assets/favicon.png"
@@ -28,6 +28,7 @@
       "supportsTablet": true
     },
     "android": {
+      "buildType": "apk",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -35,11 +36,29 @@
       "package": "com.coniw.imagevideogenerator"
     },
     "extra": {
-      "router": {},
+      "router": {
+        "origin": false
+      },
       "eas": {
-        "projectId": "f46faa9b-7306-4ca4-9c5b-551405b1379c"
+        "projectId": "cb04af5a-203d-4fcd-9090-e89ceec16c6b"
       }
     },
-    "owner": "coniw"
+    "owner": "bomigo",
+    "build": {
+      "preview": {
+        "android": {
+          "buildType": "apk"
+        }
+      },
+      "preview2": {
+        "android": {
+          "gradleCommand": ":app:assembleRelease"
+        }
+      },
+      "preview3": {
+        "developmentClient": true
+      },
+      "production": {}
+    }
   }
 }

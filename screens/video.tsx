@@ -21,7 +21,7 @@ import { useGenerateImageMutation } from '@/features/image/api/use-generate-imag
 import { useTextToImageQuery } from '@/features/image/api/use-text-to-image-quary';
 import { MaterialIcons } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
-import { toast } from 'sonner-native';
+// import { toast } from 'sonner-native';
 import Animated, {
   FadeIn,
   FadeOut,

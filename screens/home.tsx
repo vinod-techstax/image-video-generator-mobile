@@ -17,7 +17,7 @@ import { useGenerateVideoMutation } from '@/features/video/api/use-generate-vide
 import { useGenerateTextToVideoMutation } from '@/features/video/api/use-generate-text-to-video-mutation';
 import { useGenerateImageMutation } from '@/features/image/api/use-generate-image-mutation';
 import { usePromptInputStore } from '@/store/use-prompt-input-store';
-import { toast } from 'sonner-native';
+// import { toast } from 'sonner-native';
 import { router } from 'expo-router';
 import { ROUTE } from '@/constants/route';
 import { useVideoGenStore } from '@/features/video/hooks/use-generate-video-store';
@@ -69,12 +69,12 @@ const HomeScreen = () => {
 
 
     if (!_prompt.trim() && !file && !fileUrl.trim()) {
-      toast.error('Please enter a prompt or provide a file/URL');
+      // toast.error('Please enter a prompt or provide a file/URL');
       return;
     }
 
     if(!model) {
-      toast.error('Please select a model');
+      // toast.error('Please select a model');
       return;
     }
 

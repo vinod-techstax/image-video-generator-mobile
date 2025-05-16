@@ -1,6 +1,6 @@
 
 import { useMutation } from "@tanstack/react-query";
-import { toast } from "sonner-native";
+// import { toast } from "sonner-native";
 import { useVideoGenStore } from "../hooks/use-generate-video-store";
 
 type ResponseType = {
@@ -52,7 +52,7 @@ export const useGenerateVideoMutation = () => {
       throw new Error("Error while generating video")
     },
     onError: () => {
-      toast.error("Error while generating video")
+      // toast.error("Error while generating video")
     }
   });
   return mutation;

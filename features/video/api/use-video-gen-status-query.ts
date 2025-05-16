@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 
-import { toast } from "sonner-native";
+// import { toast } from "sonner-native";
 import { useVideoGenStore } from "../hooks/use-generate-video-store";
 
 export type VideoGenStatus = 
@@ -61,7 +61,7 @@ export const useVideoGenStatusQuery = (jobId: string | null, options: Options) =
         return result;
       }
       const error = "error while fetching video";
-      toast.error(error);
+      // toast.error(error);
       throw new Error(error);
     },
     refetchInterval: options.refetchInterval,

@@ -16,6 +16,7 @@ const Textarea = React.forwardRef<React.ElementRef<typeof TextInput>, TextInputP
         multiline={multiline}
         numberOfLines={numberOfLines}
         textAlignVertical='top'
+        value={props.value}
         {...props}
       />
     );

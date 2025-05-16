@@ -1,6 +1,6 @@
 import { waitFor } from '@/lib/utils';
 import { useMutation } from '@tanstack/react-query';
-import { toast } from 'sonner-native';
+// import { toast } from 'sonner-native';
 // import { waitFor } from '../../lib/utils';
 
 type ResponseType = {
@@ -51,7 +51,7 @@ export const usePromptSuccessionMutation = () => {
       throw new Error('Error while generating prompts');
     },
     onError: () => {
-      toast.error('Error while generating prompts');
+      // toast.error('Error while generating prompts');
     },
   });
   return mutation;

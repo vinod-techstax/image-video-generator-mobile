@@ -3,7 +3,7 @@ import React from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
-import { Toaster } from 'sonner-native';
+// import { Toaster } from 'sonner-native';
 
 
 const queryClient = new QueryClient({
@@ -19,7 +19,7 @@ export function QueryProvider({ children }: { children: React.ReactNode }) {
     <GestureHandlerRootView>
       <QueryClientProvider client={queryClient}>
           {children}
-          <Toaster />
+          {/* <Toaster /> */}
       </QueryClientProvider>
     </GestureHandlerRootView>
   );

@@ -1,7 +1,7 @@
 
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
-import { toast } from 'sonner';
+// import { toast } from 'sonner-native';
 
 type ResponseType =  {
   status: string
@@ -34,7 +34,7 @@ export const useAddSceneMutation = () => {
         return result;
       }
       const error = "error while deleting scene";
-      toast.error(error);
+      // toast.error(error);
       throw new Error(error);
     },
     onSuccess: (res, req) => {

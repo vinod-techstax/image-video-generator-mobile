@@ -1,7 +1,7 @@
 
 import { waitFor } from "@/lib/utils";
 import { useMutation } from "@tanstack/react-query";
-import { toast } from "sonner-native";
+// import { toast } from "sonner-native";
 
 type ResponseType = {
   task_id: string;
@@ -40,7 +40,7 @@ export const useGenerateImageMutation = () => {
       throw new Error("Error while generating image")
     },
     onError: () => {
-      toast.error("Error while generating image")
+      // toast.error("Error while generating image")
     }
   });
   return mutation;
